@@ -73,9 +73,9 @@ process_args ()
 
 process_args $*
 
-rm -r -f ~/cmake
-mkdir ~/cmake
-pushd ~/cmake
+rm -r -f ./cmake
+mkdir ./cmake
+pushd ./cmake
 cmake $toolchainfile -DcompileOption_C:STRING="$extracloptions" -Drun_e2e_tests:BOOL=$run_e2e_tests -Drun_longhaul_tests=$run_longhaul_tests -Duse_amqp:BOOL=$build_amqp -Duse_http:BOOL=$build_http -Duse_mqtt:BOOL=$build_mqtt -Dskip_unittests:BOOL=$skip_unittests $build_root
 make --jobs=$(nproc)
 ctest -C "Debug" -V
